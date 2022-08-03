@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="main_div">
+    <p id="users_number">Script users: 'Wait'</p>
+    <p>write a hashtag</p>
+    <input type="text" placeholder="Write it here" id="input_data"/>
+    <fieldset>
+      <legend>Script status</legend>  
+      <div>
+        <input type="radio" id="Run" name="drone" value="Run"
+               checked>
+        <label for="Run">Run</label>
+      </div>
+  
+      <div>
+        <input type="radio" id="Stop" name="drone" value="Stop">
+        <label for="Stop">Stop</label>
+      </div>
+
+  </fieldset>
+    <button id="send_data" onclick="displayRadioValue()">Done</button>
+    <h2 id="Status">status: Not Send</h2>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
