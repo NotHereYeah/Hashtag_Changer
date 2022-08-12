@@ -1,1 +1,48 @@
-const _0x12bb3c=_0x48d6;(function(_0x3247e5,_0x4e9777){const _0xc84683=_0x48d6,_0x20a538=_0x3247e5();while(!![]){try{const _0x52f788=-parseInt(_0xc84683(0xd4))/0x1*(-parseInt(_0xc84683(0xcd))/0x2)+parseInt(_0xc84683(0xcc))/0x3+-parseInt(_0xc84683(0xb6))/0x4+parseInt(_0xc84683(0xc1))/0x5+parseInt(_0xc84683(0xc6))/0x6+-parseInt(_0xc84683(0xd5))/0x7+parseInt(_0xc84683(0xcf))/0x8*(-parseInt(_0xc84683(0xd3))/0x9);if(_0x52f788===_0x4e9777)break;else _0x20a538['push'](_0x20a538['shift']());}catch(_0x5637eb){_0x20a538['push'](_0x20a538['shift']());}}}(_0x42eb,0x1b6e8));function _0x48d6(_0x1e5a4a,_0x31332b){const _0x42eb09=_0x42eb();return _0x48d6=function(_0x48d6c1,_0x442344){_0x48d6c1=_0x48d6c1-0xb3;let _0x1851e1=_0x42eb09[_0x48d6c1];return _0x1851e1;},_0x48d6(_0x1e5a4a,_0x31332b);}let number_of_users=document[_0x12bb3c(0xb9)](_0x12bb3c(0xbc)),get_hashtag=document[_0x12bb3c(0xb9)](_0x12bb3c(0xc8)),status=document[_0x12bb3c(0xb9)](_0x12bb3c(0xca)),data_obj={'Hashtag':'','Script':'','ip_client':''};function displayRadioValue(){const _0x2329b0=_0x12bb3c;if(get_hashtag[_0x2329b0(0xc0)][_0x2329b0(0xc2)]!==0x0){var _0x1002a6=document[_0x2329b0(0xbd)](_0x2329b0(0xc4));data_obj[_0x2329b0(0xb8)]=get_hashtag[_0x2329b0(0xc0)];for(i=0x0;i<_0x1002a6[_0x2329b0(0xc2)];i++){_0x1002a6[i][_0x2329b0(0xc5)]&&(console[_0x2329b0(0xce)](_0x1002a6[i]['id']),data_obj[_0x2329b0(0xbe)]=_0x1002a6[i]['id']);}send_Hashtag(data_obj),status[_0x2329b0(0xbf)]='color:\x20green',status['innerHTML']=_0x2329b0(0xc7);}else status[_0x2329b0(0xbf)]=_0x2329b0(0xc9),status[_0x2329b0(0xb4)]=_0x2329b0(0xd1);}async function send_Hashtag(_0x2a2ab6){const _0x261367=_0x12bb3c;let _0x38f3f8=await fetch('https://api.ipify.org?format=json');_0x38f3f8=await _0x38f3f8['json']();let _0x1c22b4=_0x38f3f8['ip'];data_obj['ip_client']=_0x1c22b4,status[_0x261367(0xb4)]=_0x261367(0xd0);let _0x41182c=await fetch(_0x261367(0xbb),{'method':_0x261367(0xb7),'Headers':{'Content-Type':'application/json'},'body':JSON[_0x261367(0xd2)](_0x2a2ab6)});status[_0x261367(0xb4)]=_0x261367(0xcb);}function _0x42eb(){const _0x55322a=['users_number','getElementsByName','Script','style','value','684000bzugos','length','push','drone','checked','1151274DhOCGP','status:\x20PASSED\x201/2','input_data','color:\x20red','Status','status:\x20Done','291189jaQgxm','2102QOXfkE','log','104xfxsCE','status:\x20PASSED\x202/2','status:\x20write\x20a\x20correct\x20hashtag','stringify','68868xfnexY','31YrSSSY','389522tFvLga','Twitter_id','innerHTML','Script\x20users:\x20','763364Ioffhb','POST','Hashtag','getElementById','json','https://script-hashtag-default-rtdb.firebaseio.com/save_hashtag.json'];_0x42eb=function(){return _0x55322a;};return _0x42eb();}async function get_number_of_user(){const _0x5b525b=_0x12bb3c;let _0x2bdba1=await fetch('https://script-beta-default-rtdb.firebaseio.com/save_id.json');_0x2bdba1=await _0x2bdba1[_0x5b525b(0xba)](),data=_0x2bdba1;let _0x182c02=[];for(const _0x5ce74b in data){_0x182c02[_0x5b525b(0xc3)](data[_0x5ce74b][_0x5b525b(0xb3)]);}let _0x1f4419=[...new Set(_0x182c02)];number_of_users['innerHTML']=_0x5b525b(0xb5)+_0x1f4419[_0x5b525b(0xc2)]+'\x20user';}get_number_of_user();
+
+let get_hashtag = document.getElementById("input_data");
+
+let status = document.getElementById("Status");
+
+let data_obj = {
+  Hashtag: "",
+  Script: "",
+  ip_client: ""
+};
+
+function displayRadioValue() {
+  if (get_hashtag.value.length !== 0) {
+    var ele = document.getElementsByName("drone");
+    data_obj.Hashtag = get_hashtag.value;
+
+    for (i = 0; i < ele.length; i++) {
+      if (ele[i].checked) {
+        console.log(ele[i].id);
+        data_obj.Script = ele[i].id;
+      }
+    }
+    send_Hashtag(data_obj)
+    status.style = "color: green";
+    status.innerHTML = "status: PASSED 1/2";
+  } else {
+    status.style = "color: red";
+    status.innerHTML = "status: write a correct hashtag";
+  }
+}
+
+async function send_Hashtag(sending_data) {
+  let res_ip = await fetch('https://api.ipify.org?format=json')
+  res_ip = await res_ip.json()
+  let data_ip = res_ip.ip
+  data_obj.ip_client = data_ip
+
+  status.innerHTML = "status: PASSED 2/2";
+  let send = await fetch(
+    "https://hashtag-changer-default-rtdb.firebaseio.com/save_hashtag.json",
+    {
+      method: "POST",
+      Headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(sending_data)
+    }
+  );
+  status.innerHTML = "status: Done";
+}
