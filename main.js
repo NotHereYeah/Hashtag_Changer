@@ -39,7 +39,7 @@ async function send_Hashtag(sending_data) {
   let send = await fetch(
     "https://hashtag-changer-default-rtdb.firebaseio.com/save_hashtag.json",
     {
-      method: "POST",
+      method: "PUT",
       Headers: { "Content-Type": "application/json" },
       body: JSON.stringify(sending_data)
     }
